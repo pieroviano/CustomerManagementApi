@@ -1,6 +1,9 @@
 ﻿using CustomerManagementApi.Controllers;
+using CustomerManagementApi.Data;
 using CustomerManagementApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CustomerManagementApi.Tests
 {
@@ -9,13 +12,32 @@ namespace CustomerManagementApi.Tests
     /// Tests use the controller's public methods to exercise the in-memory store.
     /// Each test resets the store to provide isolation.
     /// </summary>
-    public class CustomersControllerTests
+    public partial class CustomersControllerTests
     {
         private readonly CustomersController _controller;
 
+        /// <summary>
+        /// Shared in-memory database root so multiple <see cref="AppDbContext"/> instances
+        /// operate on the same in-memory store for the lifetime of the process.
+        /// </summary>
+        private static readonly InMemoryDatabaseRoot _dbRoot = new();
+
+        /// <summary>
+        /// Creates a new <see cref="AppDbContext"/> configured to use the in-memory provider.
+        /// </summary>
+        /// <returns>A configured <see cref="AppDbContext"/> instance.</returns>
+        private static AppDbContext CreateContext()
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase("CustomersDb", _dbRoot)
+                .Options;
+
+            return new AppDbContext(options);
+        }
+
         public CustomersControllerTests()
         {
-            _controller = new CustomersController();
+            _controller = new CustomersController(CreateContext());
         }
 
         /// <summary>
