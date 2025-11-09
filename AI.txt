@@ -1,0 +1,8 @@
+Task 1: Generate Comprehensive Documentation
+
+a) A concise, well-structured README file explaining the project documentation
+	To generate the ReadMe file I used the following statement:
+	Please, generate a concise, well-structured README.txt file explaining the CustomersController class
+	After the first request a second request was added:
+	Add to the ReadME.txt file documentation regarding AppDbContext, Customer and program classes
+	The file was included inside the project 'CustomerManagementApi\CustomerManagementApi.csproj'
