@@ -12,3 +12,7 @@ b) Comments for classes, methods, and properties
 	After the first request a second request was added:
 	Please, do the same in the file Program.cs
 	The updated files replaced the original ones
+c) API endpoint documentation describing parameters, responses, and examples
+	To generate the API endpoint documentation I used the following statement:
+	Please, generate API endpoint documentation for the CustomersController class inside the project 'CustomerManagementApi\CustomerManagementApi.csproj' in a file named API-documentation.txt, describing parameters, responses, and examples
+	The generated documentation was included inside the API-documentation.txt file
