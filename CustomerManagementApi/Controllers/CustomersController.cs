@@ -66,6 +66,11 @@ namespace CustomerManagementApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Customer customer)
         {
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+
             using var ctx = CreateContext();
             ctx.Customers.Add(customer);
             await ctx.SaveChangesAsync();

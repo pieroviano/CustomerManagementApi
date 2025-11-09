@@ -25,3 +25,9 @@ The generated README.txt, API-documentation.txt, and the comments added to the c
 	Please, generate a new console application project named CustomerManagementApi.Client containing example usage code for the CustomersController class inside the project 'CustomerManagementApi\CustomerManagementApi.csproj'
 	The generated example usage code was reviewed and found to be accurate and helpful for understanding how to interact with the CustomersController API endpoints.
 	It was added to the solution 'CustomerManagementApi.sln'.
+
+	Task 2: Generate Unit Tests
+	To generate unit tests, as always I use the following statement:
+	Please, generate unit tests for the CustomersController class using xunit. Ensure that tests cover: happy path scenarios, edge cases, error conditions, boundary values
+	The generated unit tests were added to a new project named 'CustomerManagementApi.Tests\CustomerManagementApi.Tests.csproj' inside the solution 'Customer
+	Running the test we discovered that the controller code was missing some null checks, so we added them manually. It doesn't make sense to ask Copilot to regenerate the unit tests again. It is better to fix what is easily fixable.
